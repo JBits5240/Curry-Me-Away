@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Ensure proper rendering and touch zooming on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curry Me Away | Gourmet Street Curries</title>
+  
+  <!-- Google Fonts: Warm, modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Link to our stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================================================================= -->
+  <!-- 1. NAVIGATION BAR                                                 -->
+  <!-- ================================================================= -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo & Name -->
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">🍛</span>
+        <span class="brand-text">Curry Me Away</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav">
+        <a href="#schedule" class="nav-link">Where to Find Us</a>
+        <a href="#menu" class="nav-link">Our Menu</a>
+        <a href="catering.html" class="nav-link nav-btn">Book Catering</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button (for phones) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ================================================================= -->
+  <!-- 2. HERO SECTION (Welcome Banner)                                  -->
+  <!-- ================================================================= -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="hero-tagline">🔥 Slow-Cooked with Passion • Served Fresh Daily</span>
+        <h1 class="hero-title">
+          <span class="hero-brand-name">Curry Me Away</span>
+          <span class="hero-subtitle">Aromatic Street Curries, <span class="highlight">On The Move.</span></span>
+        </h1>
+        <p class="hero-description">
+          Welcome to <strong>Curry Me Away</strong>! We bring authentic, slow-simmered curries, 
+          crispy street bites, and fresh garlic naans straight from our mobile kitchen to your neighborhood.
+        </p>
+
+        <!-- Call-to-action buttons -->
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">Explore Today's Menu</a>
+          <a href="#schedule" class="btn btn-secondary">Find Our Truck</a>
+        </div>
+
+        <!-- Quick highlights badges -->
+        <div class="hero-badges">
+          <div class="badge-item">
+            <span class="badge-icon">🌿</span>
+            <span>Vegan & Veggie Options</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">🌾</span>
+            <span>Gluten-Free Friendly</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">🌶️</span>
+            <span>Mild to Extra Spicy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Food Visual Card -->
+      <div class="hero-card-wrapper">
+        <div class="hero-food-card">
+          <div class="card-visual-header">
+            <span class="card-tag">Chef's Daily Special</span>
+            <span class="spice-level">🌶️🌶️ Medium</span>
+          </div>
+          <div class="food-emoji-display">🥘</div>
+          <h3>Simmered in Clay Pots</h3>
+          <p>Whole spices dry-roasted and slow-cooked in small batches for unbeatable depth of flavor.</p>
+          <div class="card-food-footer">
+            <span class="pill-badge">Fresh Basmati Rice Included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 3. LIVE SCHEDULE & "WHERE TO FIND US" SECTION                      -->
+  <!-- ================================================================= -->
+  <section id="schedule" class="section-schedule">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-subtitle">Live Location Tracker</span>
+        <h2 class="section-title">Where to Catch Us</h2>
+        <p class="section-intro">
+          We move around the city bringing hot curries right to your office or neighborhood park.
+          Today's stop is highlighted below!
+        </p>
+      </div>
+
+      <!-- Highlighted "Today's Stop" Banner -->
+      <div class="today-highlight-card" id="todayHighlightCard">
+        <div class="today-banner-label">
+          <span class="pulse-icon">📍</span>
+          <span>TODAY'S LOCATION (<span id="todayDayName">Today</span>)</span>
+        </div>
+        <div class="today-details">
+          <div class="today-info">
+            <h3 id="todayLocationName">Loading location...</h3>
+            <p class="today-address" id="todayAddress">Loading address...</p>
+            <p class="today-hours" id="todayHours">🕒 11:30 AM – 2:30 PM</p>
+          </div>
+          <div class="today-actions">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline" id="directionsLink">
+              Get Directions ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Weekly Itinerary Grid -->
+      <h3 class="weekly-heading">Full Weekly Itinerary</h3>
+      <div class="schedule-grid" id="weeklyScheduleGrid">
+        <!-- Schedule cards are populated & highlighted dynamically by script.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 4. INTERACTIVE MENU SECTION                                       -->
+  <!-- ================================================================= -->
+  <section id="menu" class="section-menu">
+    <div class="container">
+      
+      <div class="section-header">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-intro">
+          Dishes are freshly prepared every morning. Filter by category or dietary preference below!
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-controls">
+        <button class="filter-btn active" data-category="all">All Items</button>
+        <button class="filter-btn" data-category="curry">Signature Curries</button>
+        <button class="filter-btn" data-category="street">Street Bites</button>
+        <button class="filter-btn" data-category="bread">Naan & Breads</button>
+        <button class="filter-btn" data-category="drinks">Drinks & Chai</button>
+        <button class="filter-btn" data-category="vegan">🌿 Vegan & Veggie</button>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- Menu cards will be rendered dynamically by script.js -->
+      </div>
+
+      <!-- Customization note for your wife -->
+      <div class="menu-footnote">
+        <p>💡 <em>All curries are served with complimentary fragrant long-grain Basmati Rice. Additional naan, chutneys, and extra rice available upon request.</em></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 5. CATERING CTA BANNER                                            -->
+  <!-- ================================================================= -->
+  <section class="section-catering-cta">
+    <div class="container">
+      <div class="catering-cta-card">
+        <div class="cta-content">
+          <span class="section-subtitle">Private Events & Parties</span>
+          <h2>Want Curry Me Away at Your Event?</h2>
+          <p>We cater weddings, corporate lunches, birthdays, and neighborhood festivals with fresh curries and warm naan served directly from our truck.</p>
+        </div>
+        <div class="cta-action">
+          <a href="catering.html" class="btn btn-primary">Book Catering & Get Quote →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 6. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand">
+        <div class="brand-logo footer-logo">
+          <span class="logo-icon">🍛</span>
+          <span class="brand-text">Curry Me Away</span>
+        </div>
+        <p class="footer-about">
+          Your neighborhood mobile curry haven. Bringing rich spices, warm naan, and heartwarming comfort food wherever wheels can roll.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="#schedule">Find Our Truck</a></li>
+          <li><a href="#menu">Browse Menu</a></li>
+          <li><a href="catering.html">Book Catering</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📧 <a href="mailto:hello@currymeaway.com">hello@currymeaway.com</a></p>
+        <p>📱 (555) 789-CURRY</p>
+        <p>📷 Instagram: <a href="#">@CurryMeAwayTruck</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© <span id="currentYear">2026</span> <strong>Curry Me Away</strong>. All rights reserved. Crafted with love & spices.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Link to our JavaScript logic -->
+  <script src="script.js"></script>
+</body>
+</html>
