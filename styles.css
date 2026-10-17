@@ -43,8 +43,9 @@
   --radius-lg: 24px;
   --radius-full: 9999px;
 
-  /* Font Families */
-  --font-heading: 'Outfit', sans-serif;
+  /* Font Families: Warmth & Pizzazz */
+  --font-brand: 'Shrikhand', cursive, sans-serif;
+  --font-heading: 'Fraunces', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -104,9 +105,10 @@ a:hover {
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 0.2px;
   border-radius: var(--radius-full);
   border: none;
   cursor: pointer;
@@ -115,27 +117,30 @@ a:hover {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-spice), var(--spice-red));
+  background: linear-gradient(135deg, var(--sunset-red), var(--primary-hover));
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(230, 126, 34, 0.4);
+  box-shadow: 0 4px 16px rgba(238, 82, 83, 0.32);
 }
 
 .btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #b71540);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.55);
+  box-shadow: 0 6px 22px rgba(238, 82, 83, 0.45);
 }
 
 .btn-secondary {
   background-color: #ffffff;
   color: var(--text-main);
   border: 2px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-  border-color: var(--primary-spice);
-  color: var(--primary-spice);
+  border-color: var(--sunset-blue);
+  color: var(--sunset-blue);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(56, 103, 214, 0.15);
 }
 
 .btn-outline {
@@ -162,13 +167,13 @@ a:hover {
 
 .section-subtitle {
   display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--primary-spice);
-  background-color: rgba(230, 126, 34, 0.12);
+  color: var(--sunset-red);
+  background-color: rgba(238, 82, 83, 0.1);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   margin-bottom: 12px;
@@ -176,11 +181,25 @@ a:hover {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--text-main);
   line-height: 1.25;
   margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+/* Sunset Gradient Section Titles with Warm Depth */
+.section-title.section-title-sunset {
+  font-family: var(--font-brand);
+  font-size: clamp(2.3rem, 5.2vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  background: linear-gradient(135deg, var(--sunset-red) 0%, #ff5252 25%, var(--sunset-amber) 65%, var(--sunset-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(183, 21, 64, 0.2)) 
+          drop-shadow(0 8px 24px rgba(238, 82, 83, 0.25));
 }
 
 .section-intro {
@@ -194,11 +213,12 @@ a:hover {
 .site-header {
   position: sticky;
   top: 0;
-  background-color: rgba(253, 250, 246, 0.94);
-  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-light);
   z-index: 1000;
   padding: 14px 0;
+  box-shadow: 0 2px 12px rgba(238, 82, 83, 0.05);
 }
 
 .header-container {
@@ -211,45 +231,41 @@ a:hover {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--text-main);
+  gap: 12px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px);
+}
+
+.brand-text {
+  font-family: var(--font-brand);
+  font-size: 1.85rem;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  background: linear-gradient(135deg, var(--sunset-red) 0%, var(--sunset-amber) 55%, var(--sunset-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(238, 82, 83, 0.28));
+  transition: filter 0.25s ease;
+}
+
+.brand-logo:hover .brand-text {
+  filter: drop-shadow(0 4px 14px rgba(238, 82, 83, 0.45));
 }
 
 .logo-icon {
-  font-size: 1.7rem;
-  transform: rotate(-4deg);
+  font-size: 1.95rem;
+  display: inline-block;
+  transform: rotate(-6deg);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 4px 10px rgba(238, 82, 83, 0.25));
 }
 
-.live-status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-main);
-  box-shadow: var(--shadow-sm);
-}
-
-.status-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: var(--herb-green);
-  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.25);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.5); }
-  70% { box-shadow: 0 0 0 8px rgba(39, 174, 96, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+.brand-logo:hover .logo-icon {
+  transform: rotate(10deg) scale(1.18);
 }
 
 .main-nav {
@@ -301,8 +317,10 @@ a:hover {
    5. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 70px 0 60px 0;
-  background: radial-gradient(circle at 80% 20%, rgba(230, 126, 34, 0.08) 0%, transparent 60%);
+  padding: 85px 0 75px 0;
+  background: radial-gradient(circle at 85% 15%, rgba(249, 202, 36, 0.20) 0%, rgba(238, 82, 83, 0.12) 35%, rgba(56, 103, 214, 0.05) 65%, #ffffff 88%);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -313,27 +331,72 @@ a:hover {
 }
 
 .hero-tagline {
-  display: inline-block;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--spice-red);
-  margin-bottom: 14px;
+  color: var(--sunset-red);
+  background-color: rgba(238, 82, 83, 0.09);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 18px;
   letter-spacing: 0.5px;
+  border: 1px solid rgba(238, 82, 83, 0.18);
 }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 3.4rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text-main);
-  margin-bottom: 18px;
+  line-height: 1.1;
+  margin-bottom: 22px;
 }
 
-.hero-title .highlight {
-  background: linear-gradient(120deg, var(--primary-spice), var(--spice-red));
+/* Flashy, larger brand name with warm sunset gradient and eye-drawing depth */
+.hero-brand-name {
+  display: block;
+  font-family: var(--font-brand);
+  font-size: clamp(3.8rem, 8.5vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, var(--sunset-red) 0%, #ff5252 25%, var(--sunset-amber) 65%, var(--sunset-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 3px 6px rgba(183, 21, 64, 0.22)) 
+          drop-shadow(0 10px 32px rgba(238, 82, 83, 0.35))
+          drop-shadow(0 2px 4px rgba(243, 156, 18, 0.2));
+  animation: hero-brand-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes hero-brand-pulse {
+  0% {
+    filter: drop-shadow(0 3px 6px rgba(183, 21, 64, 0.22)) 
+            drop-shadow(0 8px 24px rgba(238, 82, 83, 0.3))
+            drop-shadow(0 2px 4px rgba(243, 156, 18, 0.2));
+  }
+  100% {
+    filter: drop-shadow(0 3px 8px rgba(183, 21, 64, 0.3)) 
+            drop-shadow(0 12px 36px rgba(238, 82, 83, 0.48))
+            drop-shadow(0 4px 10px rgba(249, 202, 36, 0.35));
+  }
+}
+
+.hero-subtitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.2vw, 1.95rem);
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.hero-subtitle .highlight {
+  background: linear-gradient(135deg, var(--sunset-blue), #2e86de);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
 
 .hero-description {
@@ -449,76 +512,7 @@ a:hover {
   border-bottom: 1px solid var(--border-light);
 }
 
-/* Today's Special Featured Card */
-.today-highlight-card {
-  background: linear-gradient(135deg, #2c3e50, #1a252f);
-  color: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: var(--shadow-lg);
-  margin-bottom: 48px;
-  position: relative;
-  overflow: hidden;
-  border-left: 8px solid var(--primary-spice);
-}
-
-.today-banner-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--spice-gold);
-  margin-bottom: 16px;
-}
-
-.today-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.today-info h3 {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
-.today-address {
-  color: #bdc3c7;
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-}
-
-.today-hours {
-  color: var(--spice-gold);
-  font-weight: 700;
-  font-size: 1.05rem;
-}
-
-.today-actions .btn-outline {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-.today-actions .btn-outline:hover {
-  background-color: #ffffff;
-  color: #1a252f;
-}
-
-/* Weekly Itinerary Grid */
-.weekly-heading {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  margin-bottom: 24px;
-  color: var(--text-main);
-}
-
+/* Weekly Schedule Grid */
 .schedule-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -541,16 +535,17 @@ a:hover {
 }
 
 .schedule-day-card.is-today {
-  border: 2px solid var(--primary-spice);
-  background-color: #fff9f3;
-  box-shadow: 0 4px 16px rgba(230, 126, 34, 0.15);
+  border: 2px solid var(--sunset-red);
+  background: linear-gradient(145deg, #ffffff, #fff7ee);
+  box-shadow: 0 8px 24px rgba(238, 82, 83, 0.16);
+  transform: translateY(-2px);
 }
 
 .day-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .day-name {
@@ -561,25 +556,26 @@ a:hover {
 }
 
 .today-indicator-tag {
-  background-color: var(--primary-spice);
+  background: linear-gradient(135deg, var(--sunset-red), var(--sunset-amber));
   color: #ffffff;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  box-shadow: 0 2px 6px rgba(238, 82, 83, 0.25);
 }
 
 .day-location {
-  font-weight: 600;
-  color: var(--primary-hover);
-  margin-bottom: 4px;
-  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sunset-red);
+  margin-bottom: 6px;
+  font-size: 1rem;
 }
 
 .day-address {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
   margin-bottom: 8px;
 }
@@ -588,6 +584,55 @@ a:hover {
   font-size: 0.85rem;
   color: var(--text-main);
   font-weight: 600;
+}
+
+/* Card Action: Get Directions Button */
+.day-action {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-light);
+}
+
+.btn-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: var(--sunset-red);
+  border: 1px solid var(--border-light);
+}
+
+.btn-directions:hover {
+  background-color: #fff2e6;
+  border-color: var(--sunset-red);
+  transform: translateY(-1px);
+}
+
+.btn-directions.is-today-btn {
+  background: linear-gradient(135deg, var(--sunset-red), var(--primary-hover));
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 3px 10px rgba(238, 82, 83, 0.25);
+}
+
+.btn-directions.is-today-btn:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #b71540);
+  box-shadow: 0 4px 14px rgba(238, 82, 83, 0.35);
+  transform: translateY(-1px);
+}
+
+.closed-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* --------------------------------------------------------------------------
@@ -619,15 +664,15 @@ a:hover {
 }
 
 .filter-btn:hover {
-  border-color: var(--primary-spice);
-  color: var(--primary-spice);
+  border-color: var(--sunset-red);
+  color: var(--sunset-red);
 }
 
 .filter-btn.active {
-  background-color: var(--primary-spice);
+  background: linear-gradient(135deg, var(--sunset-red), var(--primary-hover));
   color: #ffffff;
-  border-color: var(--primary-spice);
-  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.35);
+  border-color: var(--sunset-red);
+  box-shadow: 0 4px 14px rgba(238, 82, 83, 0.32);
 }
 
 /* Menu Grid */
@@ -666,7 +711,8 @@ a:hover {
 
 .dish-icon {
   font-size: 2.2rem;
-  background-color: rgba(230, 126, 34, 0.1);
+  background: rgba(238, 82, 83, 0.08);
+  border: 1px solid rgba(238, 82, 83, 0.14);
   width: 54px;
   height: 54px;
   display: flex;
@@ -679,7 +725,7 @@ a:hover {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--primary-hover);
+  color: var(--sunset-red);
 }
 
 .dish-name {
@@ -929,8 +975,8 @@ a:hover {
    8c. DEDICATED CATERING PAGE STYLES (catering.html)
    -------------------------------------------------------------------------- */
 .catering-page-hero {
-  padding: 50px 0 30px 0;
-  background: radial-gradient(circle at 50% 0%, rgba(230, 126, 34, 0.12) 0%, transparent 70%);
+  padding: 60px 0 40px 0;
+  background: radial-gradient(circle at 50% 0%, rgba(249, 202, 36, 0.18) 0%, rgba(238, 82, 83, 0.10) 35%, #ffffff 80%);
   text-align: center;
 }
 

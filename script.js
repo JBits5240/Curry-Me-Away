@@ -212,41 +212,13 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   // ========================================================================
-  // 3. FEATURE: DYNAMIC TODAY'S LOCATION TRACKER
+  // 3. FEATURE: RENDER SCHEDULE & HIGHLIGHT TODAY'S LOCATION
   // Beginner Note: Date().getDay() returns 0 for Sunday, 1 for Monday, etc.
   // ========================================================================
   const currentDayIndex = new Date().getDay();
   const todaySchedule = weeklySchedule.find(s => s.dayIndex === currentDayIndex) || weeklySchedule[1];
 
-  // Update Top Navigation Bar Status
-  const liveStatusBadge = document.getElementById('liveStatusText');
-  if (liveStatusBadge) {
-    if (todaySchedule.isOpen) {
-      liveStatusBadge.textContent = `Open Today at ${todaySchedule.location} (${todaySchedule.hours})`;
-    } else {
-      liveStatusBadge.textContent = `Kitchen Prep Day • Catering Available`;
-    }
-  }
-
-  // Update the Highlighted "Today's Stop" Card
-  const todayDayNameEl = document.getElementById('todayDayName');
-  const todayLocationNameEl = document.getElementById('todayLocationName');
-  const todayAddressEl = document.getElementById('todayAddress');
-  const todayHoursEl = document.getElementById('todayHours');
-  const directionsLinkEl = document.getElementById('directionsLink');
-
-  if (todayDayNameEl) todayDayNameEl.textContent = todaySchedule.dayName;
-  if (todayLocationNameEl) todayLocationNameEl.textContent = todaySchedule.location;
-  if (todayAddressEl) todayAddressEl.textContent = todaySchedule.address;
-  if (todayHoursEl) todayHoursEl.textContent = `🕒 ${todaySchedule.hours}`;
-  
-  if (directionsLinkEl) {
-    // Generate a Google Maps search link based on the truck's address
-    const mapsQuery = encodeURIComponent(`${todaySchedule.location} ${todaySchedule.address}`);
-    directionsLinkEl.href = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
-  }
-
-  // Render the Full Weekly Schedule Grid
+  // Render the Weekly Schedule Grid (Auto-highlights today's stop)
   const weeklyScheduleGrid = document.getElementById('weeklyScheduleGrid');
   if (weeklyScheduleGrid) {
     weeklyScheduleGrid.innerHTML = ''; // Clear placeholder content
@@ -256,6 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const dayCard = document.createElement('div');
       dayCard.className = `schedule-day-card ${isToday ? 'is-today' : ''}`;
       
+      const mapsQuery = encodeURIComponent(`${item.location} ${item.address}`);
+      const directionsHtml = item.isOpen 
+        ? `<div class="day-action">
+            <a href="https://www.google.com/maps/search/?api=1&query=${mapsQuery}" target="_blank" rel="noopener" class="btn-directions ${isToday ? 'is-today-btn' : ''}">
+              Get Directions ↗
+            </a>
+          </div>`
+        : `<div class="day-action closed-note"><span>Prep Day • Closed</span></div>`;
+
       dayCard.innerHTML = `
         <div class="day-header">
           <span class="day-name">${item.dayName}</span>
@@ -264,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="day-location">${item.location}</div>
         <div class="day-address">📍 ${item.address}</div>
         <div class="day-time">🕒 ${item.hours}</div>
+        ${directionsHtml}
       `;
 
       weeklyScheduleGrid.appendChild(dayCard);

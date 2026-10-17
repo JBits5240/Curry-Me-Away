@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curry Me Away | Gourmet Street Curries</title>
   
-  <!-- Google Fonts: Warm, modern typography -->
+  <!-- Google Fonts: Shrikhand (Vibrant Street Brand), Fraunces (Gourmet Headings), Plus Jakarta Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet">
   
   <!-- Link to our stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -30,8 +30,8 @@
 
       <!-- Navigation Links -->
       <nav class="main-nav" id="mainNav">
-        <a href="#schedule" class="nav-link">Where to Find Us</a>
         <a href="#menu" class="nav-link">Our Menu</a>
+        <a href="#schedule" class="nav-link">Where to Find Us</a>
         <a href="catering.html" class="nav-link nav-btn">Book Catering</a>
       </nav>
 
@@ -103,57 +103,14 @@
   </section>
 
   <!-- ================================================================= -->
-  <!-- 3. LIVE SCHEDULE & "WHERE TO FIND US" SECTION                      -->
-  <!-- ================================================================= -->
-  <section id="schedule" class="section-schedule">
-    <div class="container">
-      
-      <div class="section-header">
-        <span class="section-subtitle">Live Location Tracker</span>
-        <h2 class="section-title">Where to Catch Us</h2>
-        <p class="section-intro">
-          We move around the city bringing hot curries right to your office or neighborhood park.
-          Today's stop is highlighted below!
-        </p>
-      </div>
-
-      <!-- Highlighted "Today's Stop" Banner -->
-      <div class="today-highlight-card" id="todayHighlightCard">
-        <div class="today-banner-label">
-          <span class="pulse-icon">📍</span>
-          <span>TODAY'S LOCATION (<span id="todayDayName">Today</span>)</span>
-        </div>
-        <div class="today-details">
-          <div class="today-info">
-            <h3 id="todayLocationName">Loading location...</h3>
-            <p class="today-address" id="todayAddress">Loading address...</p>
-            <p class="today-hours" id="todayHours">🕒 11:30 AM – 2:30 PM</p>
-          </div>
-          <div class="today-actions">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline" id="directionsLink">
-              Get Directions ↗
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Full Weekly Itinerary Grid -->
-      <h3 class="weekly-heading">Full Weekly Itinerary</h3>
-      <div class="schedule-grid" id="weeklyScheduleGrid">
-        <!-- Schedule cards are populated & highlighted dynamically by script.js -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================================================================= -->
-  <!-- 4. INTERACTIVE MENU SECTION                                       -->
+  <!-- 3. INTERACTIVE MENU SECTION                                       -->
   <!-- ================================================================= -->
   <section id="menu" class="section-menu">
     <div class="container">
       
       <div class="section-header">
-        <h2 class="section-title">Our Menu</h2>
+        <span class="section-subtitle">Fresh Daily</span>
+        <h2 class="section-title section-title-sunset">Our Menu</h2>
         <p class="section-intro">
           Dishes are freshly prepared every morning. Filter by category or dietary preference below!
         </p>
@@ -177,6 +134,29 @@
       <!-- Customization note for your wife -->
       <div class="menu-footnote">
         <p>💡 <em>All curries are served with complimentary fragrant long-grain Basmati Rice. Additional naan, chutneys, and extra rice available upon request.</em></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 4. LIVE SCHEDULE & "WHERE TO FIND US" SECTION                      -->
+  <!-- ================================================================= -->
+  <section id="schedule" class="section-schedule">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-subtitle">Weekly Calendar</span>
+        <h2 class="section-title section-title-sunset">Where to Find Us</h2>
+        <p class="section-intro">
+          We move around the city bringing hot curries right to your office or neighborhood park.
+          Check out our weekly stops below!
+        </p>
+      </div>
+
+      <!-- Full Weekly Schedule Grid with Today Highlighted -->
+      <div class="schedule-grid" id="weeklyScheduleGrid">
+        <!-- Schedule cards are populated & highlighted dynamically by script.js -->
       </div>
 
     </div>
