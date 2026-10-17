@@ -208,6 +208,83 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
+   3.5. TOP ANNOUNCEMENT BANNER (Under Development & Facebook Link)
+   -------------------------------------------------------------------------- */
+.dev-announcement-banner {
+  background: linear-gradient(135deg, #1e272e 0%, #2f3640 45%, #1e3799 100%);
+  color: #ffffff;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--sunset-amber);
+  position: relative;
+  z-index: 1001;
+  font-size: 0.9rem;
+}
+
+.dev-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.dev-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(249, 202, 36, 0.18);
+  color: var(--sunset-gold);
+  border: 1px solid rgba(249, 202, 36, 0.4);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.dev-banner-text {
+  color: #f1f2f6;
+  font-weight: 500;
+}
+
+.dev-banner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #1877f2;
+  color: #ffffff !important;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.35);
+  transition: all 0.25s ease;
+}
+
+.dev-banner-link:hover {
+  background: #166fe5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.55);
+}
+
+.dev-banner-link .facebook-icon {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .dev-announcement-banner {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  .dev-banner-container {
+    gap: 8px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    4. NAVIGATION BAR
    -------------------------------------------------------------------------- */
 .site-header {
